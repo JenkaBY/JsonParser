@@ -118,4 +118,8 @@ public enum Element {
 			return 1;
 		}
 	}
+	
+	public int getPositionLastCharacter() {
+		return this.name().length()-1;
+	}
 }

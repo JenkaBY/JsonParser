@@ -8,14 +8,21 @@ public class JsonParser extends BaseParser{
 		super(parsedElement);
 	}
 
+	/**
+	 * 
+	 * @return Часть строки, которая должна быть преобразована в JSON элемент
+	 * @throws NotValidJsonException
+	 */
+	@Override
 	public String getParsedElement() throws NotValidJsonException{
-		validate();
+
 		
-		while (counterStartCharacter != 0){
+		while (counterFirstCharacter != 0){
 			
 		}
-		
+		validate();
 		return null;
 	}
+	
 	
 }

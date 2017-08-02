@@ -1,14 +1,15 @@
 package by.inexsoft.jsonparser.parser.element;
 
 import by.inexsoft.jsonparser.element.JsonBaseElement;
-import by.inexsoft.jsonparser.element.StringElement;
+import by.inexsoft.jsonparser.element.NullElement;
 import by.inexsoft.jsonparser.exception.NotValidJsonException;
+import by.inexsoft.jsonparser.parser.validator.helper.Element;
+import by.inexsoft.jsonparser.util.UtilityMethods;
 
-public class StringParser extends BaseParser {
+public class NullParser extends BaseParser {
 
-	public StringParser(String parsedElement) {
+	public NullParser(String parsedElement) {
 		super(parsedElement);
-
 	}
 
 	/**
@@ -16,12 +17,12 @@ public class StringParser extends BaseParser {
 	 */
 	@Override
 	public JsonBaseElement getJsonElement() throws NotValidJsonException {
-//		super.validate();
-		JsonBaseElement jsonElement = new StringElement();
+		super.validate();
+		JsonBaseElement jsonElement = new NullElement();
 		jsonElement.setValue(getParsedElement());
 		return jsonElement;
 	}
-	
+
 	/**
 	 * Определяет первую подстроку, содержащую строковый Json элемент. Остальную
 	 * часть сохраняет в поле {@value <a>restPart</a>}
@@ -29,17 +30,15 @@ public class StringParser extends BaseParser {
 	 * @return Часть строки, которая должна быть преобразована в JSON элемент
 	 * @throws NotValidJsonException
 	 */
-	public String getParsedElement() throws NotValidJsonException {
-		if (wasParsed)
-			return parsedElement;
-		for (currentPosition = initialPosition; currentPosition < chars.size(); currentPosition++) {
-			if (isLastPossibleCharacter(chars.get(currentPosition)) && !isPreviousCharEscape()) {
-				setRestPart();
-				setParsedElement();
-				break;
-			}
-		}
-		return parsedElement;
-	}
-	
+//	public String getParsedElement() throws NotValidJsonException {
+//		if (wasParsed)
+//			return parsedElement;
+//		Element element = validator.getElement();
+//		if (element.getLastPossibleCharacters().contains(chars.get(element.getPositionLastCharacter()))) {
+//			setRestPart();
+//			setParsedElement();
+//		}
+//		return parsedElement;
+//	}
+
 }

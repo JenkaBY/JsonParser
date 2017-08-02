@@ -52,4 +52,9 @@ public class JsonBaseElement {
 	public boolean isFalse() {
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		return  value.toString();
+	}
 }

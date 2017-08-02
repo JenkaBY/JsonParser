@@ -8,9 +8,15 @@ package by.inexsoft.jsonparser.element;
  *
  */
 public class StringElement extends JsonBaseElement {
-	
+
 	@Override
 	public boolean isString() {
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "\"" + super.toString() + "\"";
+	}
+
 }
